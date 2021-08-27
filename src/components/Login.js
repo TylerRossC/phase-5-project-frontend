@@ -2,11 +2,11 @@ import {useState} from 'react'
 import Errors from './Errors'
 const Login = ({errors, handleUserLoginAndSignup}) => {
 
-    const [state, setState] = useState({})
+    // const [state, setState] = useState({})
 
-    const onChange = (e) => {
-        setState({...state, [e.target.name]: e.target.value})
-    }
+    // const onChange = (e) => {
+    //     setState({...state, [e.target.name]: e.target.value})
+    // }
 
     // const onSubmit = (e) => {
     //   e.preventDefault()

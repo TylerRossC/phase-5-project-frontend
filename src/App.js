@@ -12,22 +12,22 @@ import {Switch, Route, useHistory} from 'react-router-dom'
 
 const App = () => {
   
-  const history = useHistory()
-  const [currentUser, setCurrentUser] = useState(null)
-  const [errors, setErrors] = useState([])
-  // const [playlist, setPlaylist] = useState([])
+  // const history = useHistory()
+  // const [currentUser, setCurrentUser] = useState(null)
+  // const [errors, setErrors] = useState([])
+  // // const [playlist, setPlaylist] = useState([])
 
-  const handleUserLoginAndSignup = (data) => {
-    data.errors ? setErrors(data.errors) : setUserAndBlocks(data)
-    if(!data.errors){
-      history.push('/home')
-      setErrors([])
-    }
-  }
+  // const handleUserLoginAndSignup = (data) => {
+  //   data.errors ? setErrors(data.errors) : setUserAndBlocks(data)
+  //   if(!data.errors){
+  //     history.push('/home')
+  //     setErrors([])
+  //   }
+  // }
   
-  const setUser = (data) => {
-    setCurrentUser(data.user)
-  }
+  // const setUser = (data) => {
+  //   setCurrentUser(data.user)
+  // }
   
   // const fetchUser = () => {
   //   fetch('/me')
@@ -36,9 +36,9 @@ const App = () => {
   // }
 
     
-  useEffect(() => {
-    fetchUser()
-  }, [])
+  // useEffect(() => {
+  //   fetchUser()
+  // }, [])
   
   
   return (
