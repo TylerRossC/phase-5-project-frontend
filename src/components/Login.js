@@ -8,22 +8,22 @@ const Login = ({errors, handleUserLoginAndSignup}) => {
         setState({...state, [e.target.name]: e.target.value})
     }
 
-    const onSubmit = (e) => {
-      e.preventDefault()
+    // const onSubmit = (e) => {
+    //   e.preventDefault()
 
-      let config = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(state)
-      }
+    //   let config = {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //     },
+    //     body: JSON.stringify(state)
+    //   }
 
-      fetch('/login', config)
-      .then(res => res.json())
-      .then(data => handleUserLoginAndSignup(data))
-    }
+    //   fetch('/login', config)
+    //   .then(res => res.json())
+    //   .then(data => handleUserLoginAndSignup(data))
+    // }
 
     return (
         <div>

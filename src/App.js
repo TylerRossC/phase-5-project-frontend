@@ -29,11 +29,11 @@ const App = () => {
     setCurrentUser(data.user)
   }
   
-  const fetchUser = () => {
-    fetch('/me')
-    .then(res => res.json())
-    .then(data => setUser(data))
-  }
+  // const fetchUser = () => {
+  //   fetch('/me')
+  //   .then(res => res.json())
+  //   .then(data => setUser(data))
+  // }
 
     
   useEffect(() => {

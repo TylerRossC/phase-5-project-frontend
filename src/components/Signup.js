@@ -9,23 +9,23 @@ const Signup = ({ handleUserLoginAndSignup, errors}) => {
         setState({...state, [e.target.name]: e.target.value})
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault()
+    // const onSubmit = (e) => {
+    //     e.preventDefault()
         
-        const config = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(state)
-        }
+    //     const config = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         },
+    //         body: JSON.stringify(state)
+    //     }
 
         
-        fetch('/users', config)   
-        .then(res => res.json())
-        .then(data => handleUserLoginAndSignup(data))
-    }
+    //     fetch('/users', config)   
+    //     .then(res => res.json())
+    //     .then(data => handleUserLoginAndSignup(data))
+    // }
 
     return (
         <div>
