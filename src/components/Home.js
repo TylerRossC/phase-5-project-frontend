@@ -1,11 +1,25 @@
-import React from 'react'
+import Errors from './Errors'
 
-function Home() {
-    return (
+
+const Home = ({currentUser, errors}) => {
+    
+    
+    // const render = () => {
+    //     return playlists.map(playlist => {
+    //         return <Playlist key={playlist.id}  errors={errors} currentUser={currentUser} />
+    //     })
+    // }
+    
+    
+    return(
         <div>
+            <h1> WELCOME HOME!</h1>
+            <Errors errors={errors} />
             
+            <br/>
         </div>
+
     )
 }
 
-export default Home
+export default Home;

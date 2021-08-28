@@ -12,33 +12,33 @@ import {Switch, Route, useHistory} from 'react-router-dom'
 
 const App = () => {
   
-  // const history = useHistory()
-  // const [currentUser, setCurrentUser] = useState(null)
-  // const [errors, setErrors] = useState([])
-  // // const [playlist, setPlaylist] = useState([])
+  const history = useHistory()
+  const [currentUser, setCurrentUser] = useState(null)
+  const [errors, setErrors] = useState([])
+  // const [playlist, setPlaylist] = useState([])
 
-  // const handleUserLoginAndSignup = (data) => {
-  //   data.errors ? setErrors(data.errors) : setUserAndBlocks(data)
-  //   if(!data.errors){
-  //     history.push('/home')
-  //     setErrors([])
-  //   }
-  // }
+  const handleUserLoginAndSignup = (data) => {
+    data.errors ? setErrors(data.errors) : setUser(data)
+    if(!data.errors){
+      history.push('/home')
+      setErrors([])
+    }
+  }
   
-  // const setUser = (data) => {
-  //   setCurrentUser(data.user)
-  // }
+  const setUser = (data) => {
+    setCurrentUser(data.user)
+  }
   
-  // const fetchUser = () => {
-  //   fetch('/me')
-  //   .then(res => res.json())
-  //   .then(data => setUser(data))
-  // }
+  const fetchUser = () => {
+    fetch('/me')
+    .then(res => res.json())
+    .then(data => setUser(data))
+  }
 
     
-  // useEffect(() => {
-  //   fetchUser()
-  // }, [])
+  useEffect(() => {
+    fetchUser()
+  }, [])
   
   
   return (
@@ -49,10 +49,10 @@ const App = () => {
       </h1>
       <Switch>
         <Route exact path='/home'>
-          <Home />
+          <Home errors={errors} currentUser={currentUser} />
         </Route>
         <Route path='/signup'>
-          <Signup  />  
+          <Signup errors={errors} handleUserLoginAndSignup={handleUserLoginAndSignup} />  
         </Route>
         <Route path='/login'>
           <Login errors={errors} handleUserLoginAndSignup={handleUserLoginAndSignup} />
@@ -61,10 +61,10 @@ const App = () => {
           <Logout setCurrentUser={setCurrentUser}/>
         </Route>
         <Route path='/createplaylist'>
-          <CreatePlaylist />
+          <CreatePlaylist setCurrentUser={setCurrentUser} errors={errors} />
         </Route>
         <Route path='/editplaylist'>
-          <EditPlaylist />
+          <EditPlaylist setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
         </Route>
 
       </Switch>
