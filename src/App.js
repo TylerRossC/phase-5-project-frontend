@@ -15,29 +15,38 @@ const App = () => {
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState(null)
   const [errors, setErrors] = useState([])
-  // const [playlist, setPlaylist] = useState([])
+  const [playlist, setPlaylist] = useState([])
 
   const handleUserLoginAndSignup = (data) => {
-    data.errors ? setErrors(data.errors) : setUser(data)
+    data.errors ? setErrors(data.errors) : setUserAndPlaylists(data)
+    if(!data.errors){
+      history.push('/home')
+      setErrors([])
+    }
+  }
+
+  const handleCreatePlaylist = (data) => {
+    data.errors ? setErrors(data.errors) : setPlaylist([...playlist, data.playlist])
     if(!data.errors){
       history.push('/home')
       setErrors([])
     }
   }
   
-  const setUser = (data) => {
+  const setUserAndPlaylists = (data) => {
     setCurrentUser(data.user)
+    setPlaylist(data.playlist)
   }
   
-  const fetchUser = () => {
+  const fetchUserAndPlaylists = () => {
     fetch('/me')
     .then(res => res.json())
-    .then(data => setUser(data))
+    .then(data => setUserAndPlaylists(data))
   }
 
     
   useEffect(() => {
-    fetchUser()
+    fetchUserAndPlaylists()
   }, [])
   
   
@@ -61,7 +70,7 @@ const App = () => {
           <Logout setCurrentUser={setCurrentUser}/>
         </Route>
         <Route path='/createplaylist'>
-          <CreatePlaylist setCurrentUser={setCurrentUser} errors={errors} />
+          <CreatePlaylist handleCreatePlaylist={handleCreatePlaylist} setCurrentUser={setCurrentUser} errors={errors} />
         </Route>
         <Route path='/editplaylist'>
           <EditPlaylist setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />

@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Playlists() {
+
+
+
+const Playlists = () => {
+    
+    
+    
     return (
         <div>
+        
             
         </div>
     )
