@@ -34,8 +34,8 @@ const CreatePlaylist = ({ handleCreatePlaylist, errors, setPlaylists, playlists}
             <form onSubmit={onSubmit} >
                 <label for="title">Title:</label><br/>
                     <input onChange={onChange} type="text" id="title" name="title" /><br/><br/>
-                <label for="time">Category:</label><br/>
-                    <input onChange={onChange} type="text" id="category" name="category" /><br/><br/>
+                <label for="genre">Genre:</label><br/>
+                    <input onChange={onChange} type="text" id="genre" name="genre" /><br/><br/>
                     <input type="submit" value="Submit"/>
             </form> 
             <br/>
