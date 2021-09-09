@@ -7,6 +7,8 @@ import Home from './components/Home'
 import Logout from './components/Logout'
 import CreatePlaylist from './components/CreatePlaylist'
 import EditPlaylist from './components/EditPlaylist'
+import SearchMusic from './components/SearchMusic'
+import PlaylistCard from './components/PlaylistCard'
 import {useState, useEffect} from 'react'
 import {Switch, Route, useHistory} from 'react-router-dom'
 
@@ -34,7 +36,7 @@ const App = () => {
   }
   
   const setUserAndPlaylists = (data) => {
-    setCurrentUser(data.user)
+    setCurrentUser(data)
     setPlaylists(data.playlists)
   }
   
@@ -74,6 +76,12 @@ const App = () => {
         </Route>
         <Route path='/editplaylist'>
           <EditPlaylist setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
+        </Route>
+        <Route path='/searchmusic'>
+          <SearchMusic errors={errors} playlists={playlists}/>
+        </Route>
+        <Route path='/playlist'>
+          <PlaylistCard />
         </Route>
 
       </Switch>
