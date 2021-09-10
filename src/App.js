@@ -8,9 +8,9 @@ import Logout from './components/Logout'
 import CreatePlaylist from './components/CreatePlaylist'
 import EditPlaylist from './components/EditPlaylist'
 import SearchMusic from './components/SearchMusic'
-import PlaylistCard from './components/PlaylistCard'
 import {useState, useEffect} from 'react'
 import {Switch, Route, useHistory} from 'react-router-dom'
+import PlaylistSongsContainer from './components/PlaylistSongsContainer'
 
 const App = () => {
   
@@ -18,6 +18,8 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   const [errors, setErrors] = useState([])
   const [playlists, setPlaylists] = useState([])
+  const [playlist, setPlaylist] = useState([])
+  const [songs, setSongs] = useState([])
 
   const handleUserLoginAndSignup = (data) => {
     data.errors ? setErrors(data.errors) : setUserAndPlaylists(data)
@@ -60,7 +62,7 @@ const App = () => {
       </h1>
       <Switch>
         <Route exact path='/home'>
-          <Home errors={errors} currentUser={currentUser} playlists={playlists} setPlaylists={setPlaylists} />
+          <Home errors={errors} currentUser={currentUser} playlists={playlists} setPlaylists={setPlaylists} setPlaylist={setPlaylist} setSongs={setSongs}/>
         </Route>
         <Route path='/signup'>
           <Signup errors={errors} handleUserLoginAndSignup={handleUserLoginAndSignup} />  
@@ -72,7 +74,7 @@ const App = () => {
           <Logout setCurrentUser={setCurrentUser}/>
         </Route>
         <Route path='/createplaylist'>
-          <CreatePlaylist handleCreatePlaylist={handleCreatePlaylist} setCurrentUser={setCurrentUser} playlists={playlists} setPlaylists={setPlaylists} errors={errors} />
+          <CreatePlaylist handleCreatePlaylist={handleCreatePlaylist} setCurrentUser={setCurrentUser} playlists={playlists} setPlaylists={setPlaylists} errors={errors} setSongs={setSongs} />
         </Route>
         <Route path='/editplaylist'>
           <EditPlaylist setCurrentUser={setCurrentUser} handleUserLoginAndSignup={handleUserLoginAndSignup} errors={errors} />
@@ -81,7 +83,7 @@ const App = () => {
           <SearchMusic errors={errors} playlists={playlists}/>
         </Route>
         <Route path='/playlist'>
-          <PlaylistCard />
+          <PlaylistSongsContainer songs={songs} setSongs={setSongs} playlist={playlist} />
         </Route>
 
       </Switch>

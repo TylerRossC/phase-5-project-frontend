@@ -7,7 +7,7 @@ const NavBar = ({ currentUser }) => {
       <div>
           <Navbar variant='dark' bg='dark' expand='lg'>
           <Container fluid>
-          <Navbar.Brand href="/home">Phase5</Navbar.Brand>
+          <Navbar.Brand href="/home">PlaylistIT!</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-dark-example" />
           <Navbar.Collapse id="navbar-dark-example">
               <Nav>

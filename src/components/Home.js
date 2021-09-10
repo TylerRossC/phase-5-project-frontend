@@ -2,12 +2,12 @@ import Errors from './Errors'
 import Playlists from './Playlists'
 
 
-const Home = ({currentUser, errors, playlists, setPlaylists}) => {
+const Home = ({currentUser, errors, playlists, setPlaylists, setSongs, setPlaylist}) => {
     
     
     const renderPlaylists = () => {
         return playlists.map(playlist => {
-            return <Playlists key={playlist.id} errors={errors} playlists={playlists} playlist={playlist} currentUser={currentUser} setPlaylists={setPlaylists} />
+            return <Playlists key={playlist.id} errors={errors} playlists={playlists} playlist={playlist} currentUser={currentUser} setPlaylists={setPlaylists} setSongs={setSongs} setPlaylist={setPlaylist} />
         })
     }
     

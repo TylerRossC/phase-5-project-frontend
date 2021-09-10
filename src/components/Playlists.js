@@ -5,7 +5,7 @@ import PlaylistCard from './PlaylistCard'
 import { Card } from 'react-bootstrap'
 
 
-const Playlists = ({ errors, playlist, playlists, setPlaylists }) => {
+const Playlists = ({ errors, playlist, playlists, setPlaylists, setSongs, setPlaylist}) => {
    
     const {id} = playlist
     
@@ -23,7 +23,7 @@ const Playlists = ({ errors, playlist, playlists, setPlaylists }) => {
     }
 
     const renderPlaylist = () => {
-            return <PlaylistCard playlist={playlist} errors={errors} handleDeletePlaylist={handleDeletePlaylist} /> 
+            return <PlaylistCard playlist={playlist} errors={errors} handleDeletePlaylist={handleDeletePlaylist} setSongs={setSongs} setPlaylist={setPlaylist} /> 
     }
 
    
