@@ -17,13 +17,16 @@ const PlaylistSongCard = ({song, songs, setSongs}) => {
         }
     })
 }
-    
+    console.log(songs)
     
     return (
         <div>
             <div class="card">
                 <div class="card-body">
+                <img src={song.cover_small}/>
+                <br/>
                     {song.title} - {song.artist}
+                    <br/>
                     <br/>
                     <Button id='delete-button' onClick={handleRemoveSong} variant="primary">Remove from playlist</Button>
                 </div>

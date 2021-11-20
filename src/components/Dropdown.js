@@ -13,7 +13,7 @@ const DropDown = ({playlist, song}) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({title: song.title_short, artist: song.artist.name, playlist_id: id})
+            body: JSON.stringify({title: song.title_short, artist: song.artist.name, cover_small: song.album.cover_small, playlist_id: id})
         }
 
         fetch('/songs', config)   

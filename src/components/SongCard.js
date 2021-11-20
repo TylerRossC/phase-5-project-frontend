@@ -24,6 +24,7 @@ const SongCard = ({song, playlists}) => {
                 <br/>
                     {song.title_short} - {song.artist.name}
                     <br/>
+                    <br/>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                             Add to playlist:
