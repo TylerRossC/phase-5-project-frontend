@@ -22,7 +22,7 @@ function SearchMusic({playlists}) {
         .then(res => res.json())
         .then(data => setSearch(data.data))
 }
-
+console.log(search)
     const renderSongs = () => {
         return search.map( (song, idx) => {
             return <SongCard key={idx} song={song} playlists={playlists}/>

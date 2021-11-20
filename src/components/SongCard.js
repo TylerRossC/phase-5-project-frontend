@@ -20,6 +20,8 @@ const SongCard = ({song, playlists}) => {
         <div>
             <div class="card">
                 <div class="card-body">
+                <img src={song.album.cover_small}/>
+                <br/>
                     {song.title_short} - {song.artist.name}
                     <br/>
                     <Dropdown>
